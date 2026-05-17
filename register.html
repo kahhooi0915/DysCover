@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DysCover | Create Account</title>
+    <link rel="stylesheet" href="css/register.css" />
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">DysCover</div>
+
+        <nav class="nav-links">
+            <a href="index.php">Product</a>
+            <a href="science.php">Science</a>
+            <a href="testimonials.php">Testimonials</a>
+            <a href="login.html" class="active">Login</a>
+            <a href="product.php" class="buy-btn">Buy Now</a>
+        </nav>
+    </header>
+
+    <!-- Main Register Section -->
+    <main class="register-page">
+
+        <!-- Left Information Panel -->
+        <section class="left-panel">
+            <div class="left-content">
+                <h1>Bridging rigor with engagement.</h1>
+
+                <p>
+                    Join thousands of clinicians and educators in delivering
+                    professional-grade screenings through a supportive,
+                    accessible interface designed for every mind.
+                </p>
+
+                <div class="feature-row">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚗</div>
+                        <span>Clinical Precision</span>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <span>Engaging Tasks</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Register Form -->
+        <section class="right-panel">
+            <div class="form-card">
+                <h2>Create Account</h2>
+                <p>Start your journey toward clearer insights.</p>
+
+                <form action="register.php" method="POST" onsubmit="return validateRegisterForm()">
+                    <!-- Full Name -->
+                    <label for="full_name">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="Dr. Sarah Johnson" />
+
+                    <!-- Email -->
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="sarah@clinic.org" />
+
+                    <!-- Phone -->
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="0123456789" />
+
+                    <!-- Address -->
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" rows="3" placeholder="UTeM, Melaka"></textarea>
+
+                    <!-- Password Row -->
+                    <div class="password-row">
+                        <div class="input-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="••••••••" />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="confirm_password">Confirm</label>
+                            <input type="password" id="confirm_password" name="confirm_password"
+                                placeholder="••••••••" />
+                        </div>
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="terms">
+                        <input type="checkbox" id="terms" />
+                        <label for="terms">
+                            I agree to the
+                            <a href="#">Terms of Service</a>
+                            and
+                            <a href="#">Privacy Policy</a>.
+                        </label>
+                    </div>
+
+                    <!-- Error Message -->
+                    <p id="error-message"></p>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">
+                        Create Account
+                    </button>
+                </form>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <span></span>
+                    <p>Or register with</p>
+                    <span></span>
+                </div>
+
+                <!-- Social Buttons -->
+                <div class="social-row">
+                    <button type="button">Google</button>
+                    <button type="button">Institution</button>
+                </div>
+
+                <!-- Login Link -->
+                <p class="login-text">
+                    Already have an account?
+                    <a href="login.html">Login</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">
+            <h3>DysCover</h3>
+            <p>
+                © 2024 DysCover. Bridging clinical rigor with engagement.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Explore</h4>
+            <a href="#">Research</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script src="js/register.js"></script>
+</body>
+
+</html>

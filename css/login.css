@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    height: 80px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: 700;
+    color: #0b1f5f;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-links a.active {
+    color: #0f766e;
+    border-bottom: 2px solid #0f766e;
+    padding-bottom: 6px;
+}
+
+.buy-btn {
+    background: #0f766e;
+    color: #ffffff !important;
+    padding: 12px 34px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* ================= MAIN ================= */
+.login-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 850px;
+    padding: 50px 80px;
+    gap: 0;
+}
+
+/* LEFT PANEL */
+.left-panel {
+    background: linear-gradient(135deg, #082d67, #012c57);
+    border-radius: 16px 0 0 16px;
+    padding: 80px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.left-content {
+    max-width: 420px;
+}
+
+.left-content h1 {
+    font-size: 56px;
+    line-height: 1.15;
+    margin-bottom: 30px;
+    color: #dbeafe;
+}
+
+.left-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #9fb4d1;
+    margin-bottom: 50px;
+}
+
+.security-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.security-item {
+    color: #cbd5e1;
+    font-size: 16px;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+    background: #ffffff;
+    border-radius: 0 16px 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.form-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+.form-card h2 {
+    font-size: 48px;
+    color: #0b1f5f;
+    margin-bottom: 10px;
+}
+
+.form-card>p {
+    color: #475569;
+    margin-bottom: 35px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    background: #f9fafb;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0f766e;
+    background: #ffffff;
+}
+
+.password-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password-header a {
+    font-size: 14px;
+    color: #0f766e;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.remember-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.remember-row input {
+    width: auto;
+    margin: 0;
+}
+
+.remember-row label {
+    margin: 0;
+    font-weight: 400;
+    color: #475569;
+}
+
+#error-message {
+    color: #dc2626;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #0f766e;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #0d5f59;
+}
+
+.divider {
+    margin: 35px 0 25px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.register-text {
+    text-align: center;
+    color: #475569;
+}
+
+.register-text a {
+    color: #0f766e;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #e5e7eb;
+    padding: 70px 90px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+}
+
+footer h3 {
+    font-size: 32px;
+    color: #0b1f5f;
+    margin-bottom: 20px;
+}
+
+footer h4 {
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+footer p {
+    color: #475569;
+    line-height: 1.7;
+}
+
+footer a {
+    display: block;
+    margin-bottom: 12px;
+    color: #475569;
+    text-decoration: none;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .login-page {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .left-panel {
+        display: none;
+    }
+
+    .right-panel {
+        border-radius: 16px;
+        padding: 40px;
+    }
+
+    .navbar,
+    footer {
+        padding: 30px;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+    }
+}

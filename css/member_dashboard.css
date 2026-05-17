@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.navbar {
+    height: 80px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: 700;
+    color: #0b1f5f;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 600;
+}
+
+.logout-btn {
+    background: #dc2626;
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 8px;
+}
+
+.dashboard {
+    padding: 60px 90px;
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, #082d67, #0f766e);
+    color: white;
+    padding: 50px;
+    border-radius: 18px;
+    margin-bottom: 40px;
+}
+
+.welcome-card h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.welcome-card p {
+    color: #dbeafe;
+    font-size: 18px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.card h2 {
+    color: #0b1f5f;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.card a {
+    display: inline-block;
+    background: #0f766e;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 25px;
+    }
+
+    .dashboard {
+        padding: 30px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
