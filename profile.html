@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DysCover | My Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="navbar-left">
+            <div class="logo">DysCover</div>
+
+            <nav class="nav-links">
+                <a href="dashboard.html" class="active">Dashboard</a>
+            </nav>
+        </div>
+
+        <div class="navbar-right">
+            <a href="logout.php" class="logout-btn">Logout</a>
+        </div>
+
+    </header>
+
+    <main class="profile-container">
+
+        <div class="profile-card">
+
+            <div class="profile-header">
+
+                <div class="profile-info">
+                    <div class="default-avatar" id="defaultAvatar">U</div>
+
+                    <div>
+                        <h1 id="displayName">Loading...</h1>
+                        <p id="userTitle">Customer Account</p>
+                        <span class="verified">✓ Verified User</span>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <button type="button" class="cancel-btn" onclick="window.location.href='dashboard.html'">
+                        Cancel
+                    </button>
+
+                    <button type="submit" form="profileForm" class="save-btn">
+                        Save Changes
+                    </button>
+                </div>
+
+            </div>
+
+            <form id="profileForm" action="profile.php" method="POST" class="profile-form">
+
+                <h2>Account Information</h2>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="full_name" id="full_name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" id="email">
+                </div>
+
+                <div class="form-group">
+                    <label>Professional Title</label>
+                    <input type="text" name="title" id="title">
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <script>
+        function getInitials(name) {
+            if (!name) return "U";
+
+            const parts = name.trim().split(" ");
+
+            if (parts.length === 1) {
+                return parts[0].charAt(0).toUpperCase();
+            }
+
+            return (
+                parts[0].charAt(0) +
+                parts[parts.length - 1].charAt(0)
+            ).toUpperCase();
+        }
+
+        fetch("profile.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "not_logged_in" || data.status === "access_denied") {
+                    window.location.href = "login.html";
+                    return;
+                }
+
+                const fullName = data.full_name || "User";
+                const title = data.title || "Customer Account";
+
+                document.getElementById("displayName").innerText = fullName;
+                document.getElementById("defaultAvatar").innerText = getInitials(fullName);
+
+                document.getElementById("full_name").value = fullName;
+                document.getElementById("email").value = data.email || "";
+                document.getElementById("title").value = title;
+                document.getElementById("userTitle").innerText = title;
+            })
+            .catch(err => console.log(err));
+    </script>
+
+</body>
+
+</html>

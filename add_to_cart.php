@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+// Check login first
+if (!isset($_SESSION["user_id"])) {
+
+    // Redirect to login page if not logged in
+    header("Location: login.html");
+    exit();
+}
+
 include("db_connect.php");
 
 if (!isset($_SESSION["user_id"])) {

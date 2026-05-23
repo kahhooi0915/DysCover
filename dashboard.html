@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DysCover | Dashboard</title>
+    <link rel="stylesheet" href="css/member_dashboard.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">DysCover</div>
+
+        <nav style="margin-left:auto;">
+            <a href="logout.php" class="logout-btn">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Dashboard -->
+    <main class="dashboard">
+
+        <section class="welcome-card">
+            <h1 id="welcomeText">Welcome</h1>
+            <p id="emailText"></p>
+        </section>
+
+        <section class="dashboard-grid">
+
+            <div class="card">
+                <h2>View Product</h2>
+                <p>Explore DysCover: A Gamified Dyscalculia Screening Game.</p>
+                <a href="product.html">View Product</a>
+            </div>
+
+            <div class="card">
+                <h2>Shopping Cart</h2>
+                <p>Check your selected product before checkout.</p>
+                <a href="cart.php">Go to Cart</a>
+            </div>
+
+            <div class="card">
+                <h2>My Orders</h2>
+                <p>View your order history and payment status.</p>
+                <a href="orders.html">View Orders</a>
+            </div>
+
+            <div class="card">
+                <h2>My Profile</h2>
+                <p>View, update, or delete account information.</p>
+                <a href="profile.html">Manage Profile</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        fetch("dashboard.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.status == "not_logged_in" || data.status == "access_denied") {
+                    window.location = "login.html";
+                }
+                document.getElementById("welcomeText").innerText = "Welcome, " + data.full_name;
+                document.getElementById("emailText").innerText = "Logged in as: " + data.email;
+            })
+            .catch(error => console.log(error));
+    </script>
+
+</body>
+
+</html>
