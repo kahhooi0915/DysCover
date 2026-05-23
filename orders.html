@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DysCover | My Orders</title>
+    <link rel="stylesheet" href="css/orders.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">DysCover</div>
+
+        <nav class="nav-links">
+            <a href="product.html">Product</a>
+            <a href="cart.php">Cart</a>
+            <a href="orders.html" class="active">My Orders</a>
+            <a href="logout.php" class="buy-btn">Logout</a>
+        </nav>
+    </header>
+
+    <main class="orders-page">
+        <section class="orders-header">
+            <div>
+                <p class="breadcrumb">Account / Orders</p>
+                <h1>My Orders</h1>
+                <p class="subtitle">
+                    Manage your purchases and view detailed transaction history for DysCover.
+                </p>
+            </div>
+        </section>
+
+        <section class="summary-grid">
+            <div class="summary-card teal">
+                <p>Total Orders</p>
+                <h2 id="total-orders">0</h2>
+            </div>
+
+            <div class="summary-card blue">
+                <p>Total Spent</p>
+                <h2 id="total-spent">RM 0.00</h2>
+            </div>
+
+            <div class="summary-card orange">
+                <p>Pending Processing</p>
+                <h2 id="pending-orders">0</h2>
+            </div>
+        </section>
+
+        <section class="orders-table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Total Amount</th>
+                        <th>Shipping Address</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="orders-body">
+                    <tr>
+                        <td colspan="6" class="empty">Loading orders...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        fetch("orders.php")
+            .then(response => response.json())
+            .then(data => {
+                const body = document.getElementById("orders-body");
+
+                if (data.status === "not_logged_in") {
+                    window.location.href = "login.html";
+                    return;
+                }
+
+                const orders = data.orders;
+                let totalSpent = 0;
+                let pendingCount = 0;
+
+                document.getElementById("total-orders").textContent = orders.length;
+
+                if (orders.length === 0) {
+                    body.innerHTML = `
+                <tr>
+                    <td colspan="6" class="empty">No orders found.</td>
+                </tr>
+            `;
+                    return;
+                }
+
+                let rows = "";
+
+                orders.forEach(order => {
+                    totalSpent += parseFloat(order.total_amount);
+
+                    if (order.order_status.toUpperCase() === "PROCESSING") {
+                        pendingCount++;
+                    }
+
+                    rows += `
+                <tr>
+                    <td>#${order.order_id}</td>
+                    <td>${order.order_date}</td>
+                    <td>RM ${parseFloat(order.total_amount).toFixed(2)}</td>
+                    <td>${order.shipping_address}</td>
+                    <td><span class="badge paid">${order.payment_status}</span></td>
+                    <td><span class="badge status">${order.order_status}</span></td>
+                </tr>
+            `;
+                });
+
+                body.innerHTML = rows;
+                document.getElementById("total-spent").textContent = "RM " + totalSpent.toFixed(2);
+                document.getElementById("pending-orders").textContent = pendingCount;
+            })
+            .catch(() => {
+                document.getElementById("orders-body").innerHTML = `
+            <tr>
+                <td colspan="6" class="empty">Failed to load orders.</td>
+            </tr>
+        `;
+            });
+    </script>
+
+</body>
+
+</html>

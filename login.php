@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                case "customer":
                 default:
-                    header("Location: member/dashboard.php");
+                    header("Location: dashboard.html");
                     break;
             }
             exit();
