@@ -115,7 +115,9 @@ try {
     unset($_SESSION["checkout_shipping_address"]);
     unset($_SESSION["checkout_total_amount"]);
 
-    header("Location: order_confirmation.php?order_id=" . $order_id);
+    $_SESSION["last_order_id"] = $order_id;
+
+    header("Location: purchase_success.php");
     exit();
 
 } catch (Exception $e) {

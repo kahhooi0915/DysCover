@@ -44,10 +44,11 @@ body {
 }
 
 .buy-btn {
-    background: #2563eb;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
     color: #ffffff !important;
     padding: 10px 18px;
     border-radius: 25px;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
 }
 
 .cart-page {
@@ -144,12 +145,13 @@ h1 {
 
 .quantity-form button {
     border: none;
-    background: #2563eb;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
     color: white;
     padding: 9px 14px;
     border-radius: 10px;
     cursor: pointer;
     font-weight: 700;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.18);
 }
 
 .remove-link {
@@ -209,7 +211,7 @@ h1 {
     display: block;
     width: 100%;
     text-align: center;
-    background: #2563eb;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
     color: white;
     padding: 15px;
     border-radius: 13px;
@@ -219,11 +221,12 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     margin-top: 24px;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
 }
 
 .checkout-btn:hover,
 .primary-btn:hover {
-    background: #1d4ed8;
+    background: linear-gradient(135deg, #1d4ed8, #6d28d9);
 }
 
 .continue-link {

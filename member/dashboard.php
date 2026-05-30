@@ -20,7 +20,7 @@ $email = $_SESSION["email"];
 <head>
     <meta charset="UTF-8">
     <title>DysCover | Member Dashboard</title>
-    <link rel="stylesheet" href="../css/member_dashboard.css">
+    <link rel="stylesheet" href="../css/member_dashboard.css?v=2">
 </head>
 <body>
 
@@ -30,7 +30,7 @@ $email = $_SESSION["email"];
     <nav>
         <a href="../product.php">Product</a>
         <a href="../cart.php">Cart</a>
-        <a href="profile.php">My Profile</a>
+        <a href="../profile.html">My Profile</a>
         <a href="../logout.php" class="logout-btn">Logout</a>
     </nav>
 </header>
@@ -57,13 +57,13 @@ $email = $_SESSION["email"];
         <div class="card">
             <h2>My Orders</h2>
             <p>View your order history and payment status.</p>
-            <a href="orders.php">View Orders</a>
+            <a href="../orders.html">View Orders</a>
         </div>
 
         <div class="card">
             <h2>My Profile</h2>
             <p>View, update, or delete your account information.</p>
-            <a href="profile.php">Manage Profile</a>
+            <a href="../profile.html">Manage Profile</a>
         </div>
     </section>
 </main>

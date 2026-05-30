@@ -23,7 +23,7 @@ if ($result->num_rows !== 1) {
 <head>
     <meta charset="UTF-8">
     <title>DysCover | Reset Password</title>
-    <link rel="stylesheet" href="css/reset_password.css">
+    <link rel="stylesheet" href="css/reset_password.css?v=2">
 </head>
 <body>
 

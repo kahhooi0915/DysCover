@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>DysCover | Password Updated</title>
-    <link rel="stylesheet" href="css/reset_password.css">
+    <link rel="stylesheet" href="css/reset_password.css?v=2">
 </head>
 <body>
 

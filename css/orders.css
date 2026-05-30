@@ -40,16 +40,17 @@ body {
 }
 
 .nav-links a.active {
-    color: #00796b;
-    border-bottom: 2px solid #00796b;
+    color: #2563eb;
+    border-bottom: 2px solid #2563eb;
     padding-bottom: 6px;
 }
 
 .buy-btn {
-    background: #00796b;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
     color: white !important;
     padding: 12px 32px;
     border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
 }
 
 .orders-page {
@@ -154,7 +155,7 @@ td {
 
 .badge.paid {
     background: #dff8f3;
-    color: #00796b;
+    color: #2563eb;
 }
 
 .badge.status {

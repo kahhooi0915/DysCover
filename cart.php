@@ -45,7 +45,7 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <title>DysCover | Cart</title>
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/cart.css?v=2">
 </head>
 
 <body>

@@ -55,7 +55,7 @@ if ($cart_count === 0) {
 <head>
     <meta charset="UTF-8">
     <title>DysCover | Checkout</title>
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/cart.css?v=2">
 </head>
 
 <body>
@@ -64,9 +64,9 @@ if ($cart_count === 0) {
     <div class="logo">DysCover</div>
 
     <nav class="nav-links">
-        <a href="product.php">Product</a>
+        <a href="product.html">Product</a>
         <a href="cart.php">Cart</a>
-        <a href="member.php">Dashboard</a>
+        <a href="member/dashboard.php">Dashboard</a>
         <a href="logout.php" class="buy-btn">Logout</a>
     </nav>
 </header>

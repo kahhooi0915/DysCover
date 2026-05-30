@@ -1,32 +1,17 @@
 <?php
 session_start();
 
-// Check login first
-if (!isset($_SESSION["user_id"])) {
-
-    // Redirect to login page if not logged in
-    header("Location: login.html");
-    exit();
-}
-
-include("db_connect.php");
-
-if (!isset($_SESSION["user_id"])) {
-    echo "<script>
-            alert('Please login first before adding product to cart.');
-            window.location.href = 'login.html';
-          </script>";
-    exit();
-}
-
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $product_id = isset($_POST["product_id"]) ? intval($_POST["product_id"]) : 0;
+    $quantity = isset($_POST["quantity"]) ? intval($_POST["quantity"]) : 1;
+} elseif (isset($_SESSION["user_id"], $_SESSION["pending_cart_item"])) {
+    $product_id = intval($_SESSION["pending_cart_item"]["product_id"]);
+    $quantity = intval($_SESSION["pending_cart_item"]["quantity"]);
+    unset($_SESSION["pending_cart_item"]);
+} else {
     header("Location: product.php");
     exit();
 }
-
-$user_id = $_SESSION["user_id"];
-$product_id = isset($_POST["product_id"]) ? intval($_POST["product_id"]) : 0;
-$quantity = isset($_POST["quantity"]) ? intval($_POST["quantity"]) : 1;
 
 if ($product_id <= 0) {
     echo "<script>
@@ -39,6 +24,21 @@ if ($product_id <= 0) {
 if ($quantity < 1) {
     $quantity = 1;
 }
+
+if (!isset($_SESSION["user_id"])) {
+    $_SESSION["pending_cart_item"] = [
+        "product_id" => $product_id,
+        "quantity" => $quantity
+    ];
+    $_SESSION["redirect_after_login"] = "add_to_cart.php";
+
+    header("Location: login.html");
+    exit();
+}
+
+include("db_connect.php");
+
+$user_id = $_SESSION["user_id"];
 
 /*
     Step 1: Check whether this product already exists in cart
@@ -70,9 +70,9 @@ if (mysqli_stmt_num_rows($check_stmt) > 0) {
     mysqli_stmt_close($check_stmt);
 
     /*
-        Product already exists, update quantity
+        Product already exists, keep the cart quantity aligned with the selected value.
     */
-    $new_quantity = $existing_quantity + $quantity;
+    $new_quantity = $quantity;
 
     $update_sql = "UPDATE cart 
                    SET quantity = ? 

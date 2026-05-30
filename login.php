@@ -46,7 +46,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                case "customer":
                 default:
-                    header("Location: dashboard.html");
+                    $redirect_after_login = $_SESSION["redirect_after_login"] ?? "";
+                    unset($_SESSION["redirect_after_login"]);
+
+                    $allowed_redirects = [
+                        "add_to_cart.php",
+                        "cart.php",
+                        "checkout.php"
+                    ];
+
+                    if (in_array($redirect_after_login, $allowed_redirects, true)) {
+                        header("Location: " . $redirect_after_login);
+                    } else {
+                        header("Location: dashboard.html");
+                    }
                     break;
             }
             exit();

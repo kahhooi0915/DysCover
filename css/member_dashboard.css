@@ -40,9 +40,10 @@ nav a {
 
 .logout-btn {
     padding: 10px 18px;
-    background: #0f8a7d;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
     color: white;
     border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
 }
 
 
@@ -97,10 +98,11 @@ nav a {
 
     display: inline-block;
     padding: 10px 20px;
-    background: #0f8a7d;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
     border-radius: 8px;
     text-decoration: none;
     color: white;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
 
 }
 
